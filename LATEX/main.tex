@@ -64,7 +64,7 @@ It also provides a framework for future research
 into AI-assisted diagnostics in radiology or related application domains.
 
 In this project, a machine learning-based system that automatically 
-classifies MRI images into meningioma or glioma categories 
+classifies MRIs into meningioma or glioma categories 
 using custom handcrafted, frequency and radiomic features 
 is developed and evaluated.
 The two machine learning models employed 
@@ -100,12 +100,12 @@ a Neural Network (Multi-Layer Perceptron).
 
     \section{Hw and Sw Requirements}
 	\par The software stack used to implement the classification system consists of Python libraries
-	such as \textit{SimpleITK, OpenCV, scikit-learn, PyRadiomics, matplotlib, seaborn}.
-	The code and the MRI images used for this project report are available in the following repository \cite{code}.
+	such as \textit{SimpleITK, OpenCV, scikit-learn, pandas, PyRadiomics, matplotlib, seaborn}.
+	The code and the MRIs used for this project report are available in the following repository \cite{code}.
     \subsection{Data Details}
-	MRI images were sourced from \cite{data}, which contains 7023 MRI images of human brain, divided 
+	MRIs were sourced from \cite{data}, which contains 7023 MRIs of human brain, divided 
 	in 4 categories: \textit{glioma - meningioma - no tumor and pituitary}.
-	For this report's purpose the first two categories are utilized, and selected 1000 MRI images from both \textit{glioma} and
+	For this report's purpose the first two categories are utilized, and selected 1000 MRI scans from both \textit{glioma} and
 	\textit{meningioma} classes.
 
     \subsection{Method}
@@ -114,25 +114,39 @@ a Neural Network (Multi-Layer Perceptron).
 	all images are loaded using SimpleITK
 	and converted into NumPy arrays and their respective pixel intensities are 
 	normalized into the range of grayscale images ([0, 255]).
-	In the next step a 4 pixel masking takes place, in order to reduce the black surrounding areas
-	appearing in every MRI image. This border mask is applied and excludes irrelevant regions at the 
+	In the next step a 10-pixel masking takes place, in order to reduce the black surrounding areas
+	appearing in every MRI. This border mask is applied and excludes irrelevant regions at the 
 	edges of the images. The number of the extracted features can be divided into three subcategories:
 
 	1)\textit{Features acquired from Pyradiomics}: by utilization of PyRadiomics first-order statistics (mean, variance, entropy) and
 	texture features (GLCM, GLRLM, GLSZM) are extracted.
 	\newline
 	2)\textit{Custom Features}: have been designed and implemented in order to intuitively help detecting a tumor alike
-	object on an MRI image. (\textit{intensity\_skewness, intensity\_outlier\_score, high\_intensity\_area, max\_circularity,
+	object on an MRI. (\textit{intensity\_skewness, intensity\_outlier\_score, high\_intensity\_area, max\_circularity,
 	top3\_circularity\_mean, solidity\_outlier, abnormal\_area\_ratio, circular\_area\_score, asymmetry\_score, asymmetry\_outlier,
 	boundary\_sharpness\_mean, boundary\_sharpness\_max, boundary\_sharpness\_outlier}).
 
-	3)\textit{Frequency Domain Features}: Energy, entropy, mean, and skewness in low, mid, and high-frequency 
+	3)\textit{Frequency Domain Features}: Energy, entropy, mean, standard deviation and skewness in low, mid, and high-frequency 
 	bands using FFT.
 	
+	The frequency feature extraction module analyzes an image's frequency content 
+	by decomposing its Fourier spectrum in three frequency bands: low, mid, and high frequencies. 
+	In the first place, the image is converted to grayscale (in the case it was an RGB one), 
+	and its 2D Fast Fourier Transform (FFT) is computed. 
+	The frequency spectrum is then partitioned into concentric circular bands 
+	centered around the zero frequency, with radius scaled adaptively to the image 
+	dimensions (20\%, 20–60\%, and 60–100\% of the maximum frequency). 
+	For each one of the bands, five statistical features have been extracted:
+	energy (total squared magnitude), entropy (spectral uniformity), mean intensity, standard deviation
+	and skewness (asymmetry of the distribution). 
+	These utilization of these features characterize the image's texture and structural patterns 
+	This way is handling possible variations of the image sizes due to the adaptive band scaling.
 	
 	In total, 139 features were examined, which is the combination of the three previous described categories.
 	By conducting the feature extraction process, \textit{min-max} normalization is performed in all the generated feature values
-	mapping them on the [0, 1] range as we can observe in Figure 1. 
+	mapping them on the [0, 1] range as we can observe in Figure 1. This have been performed as a necessary step
+	before training machine learning models to help the models generazibility and for models skewness avoidance.
+
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=1.1\textwidth]{images/RootMeanSquared.png}
@@ -305,7 +319,19 @@ classification performance. Key observations include:
 		Using the best subset of features reduces dimensionality and noise, and can improve the 
 		neural network’s performance and training efficiency, 
 		while benefiting from complementary strengths of both models for robust classification.
-		
+	
+
+		The models who yielded the best performance, 
+		have also been modified from their previous configuration.
+		For the Random Forest, the decision trees we increased by a factor of ten to 1000 decision trees, 
+		each using the Gini impurity criterion for spliting  nodes and a random subset of 15 features per split
+		to ensure diversity and reduce overfitting. 
+		In addition, the Neural Network remained a two layer MLP with 100 neurons in the first hidden layer and 
+		50 in the second, activated by ReLU non-linearity. 
+		It uses the L-BFGS optimizer, a memory-efficient gradient based method 
+		suitable for smaller datasets. 
+
+
 		Results from tuned-modified models in this way are presented below.
 
 
@@ -364,9 +390,9 @@ classification performance. Key observations include:
 \section{Histogram Matching enchancement}
 
 
-Analysis of the histograms of the MRI images on the dataset is performed
-and is presented below. Results of analysing the intensitis of the 
-MRI images per category (Figure 5.1)
+Analysis of the histograms of the MRIs on the dataset is performed
+and is presented below. Results of analysing the intensities of the 
+MRIs per category (Figure 17)
 demonstrate that unnormalized intensity distributions introduce scanner 
 or acquisition protocol-dependent variability that
 could dominate the signal of interest. 
@@ -383,7 +409,7 @@ essential for the exact tumor classification.
 		\end{figure}		
 
 
-Also in Figure 5.2 we can observe graphical the distribution intensities of the MRIs for both classes.
+Also in Figure 18 we can observe graphical the distribution intensities of the MRIs for both classes.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=1.0\textwidth]{images/Unmatched_intensity_distributions.png}
@@ -396,7 +422,7 @@ Also in Figure 5.2 we can observe graphical the distribution intensities of the 
 
 \subsection{Reference image selection}
 
-For the proccess of the selection of an optimal reference image for histogram matching, MRI images have been systematically evaluated
+For the proccess of the selection of an optimal reference image for histogram matching, MRIs have been systematically evaluated
 from the dataset (sampling 300 candidates by default) and choose the one that maximized class separability after histogram matching.
 Each candidate reference image, is tested on a subset of images (20 per class) 
 by performing histogram matching and then calculating a separability score based on the 
@@ -408,7 +434,7 @@ intensity characteristics between the two tumor types while using a single unbia
 reference for all images.
 
 The effect of histogram matching on 500 sampled MRIs belonging to meningioma category and 500 sampled MRIs belonging to glioma category is 
-visualized in Figure 16.
+visualized in Figure 19.
 
 		\begin{figure}[H]
 			\centering
@@ -472,6 +498,19 @@ custom extracted features are included in the list.
 
 \section{Conclusion}
 
+In this project has been attempted to create an application of an automated system for 
+classifying gliomas and meningiomas using MRI scans, utilizing a combination of radiomic, custom-designed, and frequency-domain features. 
+The Random Forest and Multi-Layer Perceptron classifiers 
+demonstrated strong performance, 
+with the Random Forest achieving slighter superior classification accuracy. 
+
+The integration of all feature types yielded the highest classification accuracy, 
+suggesting a complementary nature of texture, shape, statistical, and frequency-domain features.
+Fine-tuning the models led to improvements, underscoring the importance of parameter selection from all the categories for maximizing performance.
+In addition, intensity normalization via histogram matching 
+further enhanced model generalizability, 
+reducing scanner dependent variability 
+and improving the outcomes.
 
 \bibliographystyle{plain}
 
