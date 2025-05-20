@@ -33,7 +33,7 @@ X_test = test_df[top_features].values
 y_test = test_df['label'].values
 
 # Train Random Forest
-rf = RandomForestClassifier(n_estimators=500, random_state=42)
+rf = RandomForestClassifier(n_estimators=1000, criterion='gini', max_features = 15,random_state=42)
 rf.fit(X_train, y_train)
 
 # Predict and evaluate RF
@@ -44,8 +44,8 @@ print(f"AUC: {roc_auc_score(y_test, y_pred_rf):.3f}")
 print(classification_report(y_test, y_pred_rf))
 
 # Train Neural Network (same architecture as yours)
-nn = MLPClassifier(hidden_layer_sizes=(128,16), max_iter=500, activation='relu', solver='lbfgs', random_state=42)
-#nn = MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=1000, activation='relu', solver='lbfgs', random_state=42)
+#nn = MLPClassifier(hidden_layer_sizes=(128,64), max_iter=500, activation='relu', solver='lbfgs', random_state=42)
+nn = MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=1000, activation='relu', solver='lbfgs', random_state=42)
 nn.fit(X_train, y_train)
 
 # Predict and evaluate NN
@@ -93,3 +93,50 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
+
+print("Comparison")
+# Let's make a DataFrame for easy comparison
+comparison_df = pd.DataFrame({
+    'True_Label': y_test,
+    'RF_Pred': y_pred_rf,
+    'NN_Pred': y_pred_nn
+})
+
+# Define labels
+labels = ['meningioma', 'glioma']  # adjust if your label encoding is different
+
+# Function to label agreement
+def agreement(row):
+    if row['RF_Pred'] == row['True_Label'] and row['NN_Pred'] == row['True_Label']:
+        return 'Both Correct'
+    elif row['RF_Pred'] != row['True_Label'] and row['NN_Pred'] != row['True_Label']:
+        return 'Both Wrong'
+    elif row['RF_Pred'] == row['True_Label'] and row['NN_Pred'] != row['True_Label']:
+        return 'RF Correct Only'
+    elif row['RF_Pred'] != row['True_Label'] and row['NN_Pred'] == row['True_Label']:
+        return 'NN Correct Only'
+    else:
+        return 'Other'
+
+comparison_df['Agreement'] = comparison_df.apply(agreement, axis=1)
+
+# Count agreement categories
+print("Agreement Summary:")
+print(comparison_df['Agreement'].value_counts())
+
+# Now, let's visualize where each model predicted what:
+# Create a confusion-like matrix for agreement categories vs true label
+
+agg_table = pd.crosstab(comparison_df['True_Label'], comparison_df['Agreement'])
+
+plt.figure(figsize=(10,6))
+sns.heatmap(agg_table, annot=True, fmt='d', cmap='coolwarm')
+plt.title("Comparison of RF and NN Classification Outcomes")
+plt.ylabel("True Label")
+plt.xlabel("Classification Agreement")
+plt.show()
+
+# Optional: Show samples where classifiers disagree (for detailed inspection)
+disagree_samples = comparison_df[comparison_df['Agreement'] != 'Both Correct']
+print("\nSamples where classifiers disagree or both wrong:")
+print(disagree_samples)

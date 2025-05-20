@@ -168,7 +168,7 @@ a Neural Network (Multi-Layer Perceptron).
 
 		\begin{figure}[h]
 			\centering
-			\includegraphics[width=0.9\textwidth]{images/top20_rf_pyradiomics.png}
+			\includegraphics[width=0.7\textwidth]{images/top20_rf_pyradiomics.png}
 			\caption{Top20 features of RF.}
 			\label{fig1:}
 		\end{figure}		
@@ -202,7 +202,7 @@ a Neural Network (Multi-Layer Perceptron).
 
 		\begin{figure}[h]
 			\centering
-			\includegraphics[width=0.9\textwidth]{images/freq_top_rf.png}
+			\includegraphics[width=0.7\textwidth]{images/freq_top_rf.png}
 			\caption{Top20 features of RF.}
 			\label{fig1:}
 		\end{figure}		
@@ -234,7 +234,7 @@ a Neural Network (Multi-Layer Perceptron).
 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.9\textwidth]{images/top20features_all_features_rf.png}
+			\includegraphics[width=0.7\textwidth]{images/top20features_all_features_rf.png}
 			\caption{Top20 features of RF.}
 			\label{fig1:}
 		\end{figure}		
@@ -252,28 +252,6 @@ a Neural Network (Multi-Layer Perceptron).
 			\caption{Classification report}
 			\label{fig1:}
 		\end{figure}		
-		
-
-		\subsection{Classifier Optimization}
-
-		At this point, hyperparameter optimization is explored in order to achieve better classification
-		results utilizing the created models.
-		In our workflow,  first a Random Forest classifier was utilized with hyperparameter tuning 
-		to identify the 30 most important features from the dataset. 
-		The hyperparameters such as the number of trees (n\_estimators), tree depth (max\_depth), 
-		minimum samples per split and leaf (min\_samples\_split, min\_samples\_leaf), 
-		and others are optimized using randomized search with cross-validation. 
-		
-		This ensures that the Random Forest model is tuned for the purpose of capturing
-		the most relevant patterns in the data but also for preventing overfitting. 
-		After determining the feature importances, the top 30 features are selected as inputs for the next step.
-		These selected features are then fed into a neural network (MLPClassifier) 
-		with fixed hyperparameters (e.g., activation function, solver, learning rate, and number of iterations) for
-		performing the final classification. 
-		Using the best subset of features reduces dimensionality and noise, and can improve the 
-		neural network’s performance and training efficiency, 
-		while benefiting from complementary strengths of both models for robust classification.
-		
 
 
 \subsection{Evaluation Findings}
@@ -304,6 +282,83 @@ classification performance. Key observations include:
 		The Random Forest classifier consistently outperformed the MLP neural network across all configurations, 
 		particularly in terms of interpretability (e.g., feature importance rankings) and robustness (AUC metrics).
 \end{itemize}
+
+
+
+
+		\subsection{Classifier Optimization}
+
+		At this point, hyperparameter optimization is explored in order to achieve better classification
+		results utilizing the created models.
+		In our workflow,  first a Random Forest classifier was utilized with hyperparameter tuning 
+		to identify the 30 most important features from the dataset. 
+		The hyperparameters such as the number of trees (n\_estimators), tree depth (max\_depth), 
+		minimum samples per split and leaf (min\_samples\_split, min\_samples\_leaf), 
+		and others are optimized using randomized search with cross-validation. 
+		
+		This ensures that the Random Forest model is tuned for the purpose of capturing
+		the most relevant patterns in the data but also for preventing overfitting. 
+		After determining the feature importances, the top 30 features are selected as inputs for the next step.
+		These selected features are then fed into a neural network (MLPClassifier) 
+		with fixed hyperparameters (e.g., activation function, solver, learning rate, and number of iterations) for
+		performing the final classification. 
+		Using the best subset of features reduces dimensionality and noise, and can improve the 
+		neural network’s performance and training efficiency, 
+		while benefiting from complementary strengths of both models for robust classification.
+		
+		Results from tuned-modified models in this way are presented below.
+
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1.1\textwidth]{images/metrics_hyper.png}
+			\caption{Metric results.}
+			\label{fig1:}
+		\end{figure}		
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{images/roc_hyper.png}
+			\caption{RoC curves for RF and MLP-nn.}
+			\label{fig1:}
+		\end{figure}		
+
+	
+		After hyperparameter tuning, the Random Forest classifier’s accuracy improved from 0.922 to 0.94, 
+		indicating a notable gain of approximately 1.8%. 
+		This improvement suggests that optimizing 
+		parameters like the number of trees, tree depth, and feature selection/reduction helped the model to
+		better capture patterns in the data, resulting in more accurate predictions.
+
+		In a similar way, the neural network 's accuracy increased from 0.915 to 0.932, 
+		a gain of about 1.7\%. 
+		This demonstrates that tuning hyperparameters such as the network architecture, 
+		learning rate, and using only the top 30 features selected by Random Forest's model
+		allowed  better generalization on the test data.
+
+		In overall, both models benefited from hyperparameter optimization, 
+		with the Random Forest showing a slightly higher accuracy gain. 
+		Improvements like these highlight the importance of fine tuning model settings 
+		in order to achieve maximization in classification performance, 
+		even in cases of starting from already strong baseline models.
+		
+
+		As for the model agreement, a comparative analysis plot in Figure X, 
+		shows that both classifiers largely agree and perform well together, 
+		with most samples correctly identified by both.
+		Each model also has some unique correct predictions, 
+		demonstrating by this their complementary strengths.
+		More strategies could be employed (f.e voting etc) that could improve an overall
+		system's performance.
+		There is a relatively small number of samples misclassified by both models(11/400) samples,
+		highlighting area for further improvements for this project.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{images/comparison.png}
+			\caption{RoC curves for RF and MLP-nn.}
+			\label{fig1:}
+		\end{figure}		
 
 
 \section{Histogram Matching enchancement}
@@ -389,7 +444,7 @@ extraction and classification models to focus more on structural and textural pa
 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=0.9\textwidth]{images/top20_rf_hm.png}
+			\includegraphics[width=0.7\textwidth]{images/top20_rf_hm.png}
 			\caption{Top20 features of RF.}
 			\label{fig1:}
 		\end{figure}		

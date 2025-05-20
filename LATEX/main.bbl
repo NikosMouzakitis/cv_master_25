@@ -5,7 +5,8 @@
 \newblock Accessed: 2025-05-09.
 
 \bibitem{code}
-\newblock \url{https://www.github.com/}
+	Source code and data used in this project: 
+\newblock \url{https://github.com/NikosMouzakitis/cv_master_25}
 
 \bibitem{duron}
 	Duron L, Balvay D, Vande Perre S, Bouchouicha A, Savatovsky J, Sadik J-C, et al. (2019) Gray-level discretization impacts reproducible MRI radiomics texture features. PLoS ONE 14(3): e0213459. \url{https://doi.org/10.1371/journal.pone.0213459}
