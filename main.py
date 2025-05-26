@@ -549,14 +549,21 @@ def load_data(healthy_dir, tumor_dir):
 # ======================
 def main():
     # 1. Load data
-    data_df = load_data("../thismeningioma", "../thisglioma")
+    data_df = load_data("thismeningioma", "thisglioma")
     #data_df = load_data("thisnotumor", "thismeningioma")
     #data_df = load_data("../thisnotumor", "../thismeningioma")
-   
+    # Limit to 100 images per class (reproducibly)
+
+    tumor_df = data_df[data_df['label'] == 1].sample(n=250, random_state=42)
+    healthy_df = data_df[data_df['label'] == 0].sample(n=250, random_state=42)
+
+    data_df = pd.concat([tumor_df, healthy_df]).reset_index(drop=True)   
 
     # Analyze intensity distributions
     healthy_files = data_df[data_df['label'] == 0]['filepath'].tolist()
     tumor_files = data_df[data_df['label'] == 1]['filepath'].tolist()
+
+
 
 
     print("\nAnalyzing intensity distributions...")
@@ -679,8 +686,6 @@ def main():
     plt.xlabel('Relative Importance')
     plt.tight_layout()
     plt.show()
-
-
 
     # ======================
     # 8. ROC Curve Plotting

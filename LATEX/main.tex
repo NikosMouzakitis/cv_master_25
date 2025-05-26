@@ -47,30 +47,32 @@
 % Chapters
 \section{Introduction}
 
-Brain tumors are among the most complex and dangerous 
-diseases affecting the central nervous system. 
-Early and accurate diagnosis is crucial in order to achieve effective treatment on time. 
-Magnetic Resonance Imaging (MRI) is a widely used modality for detecting 
-and characterizing brain tumors due to its high resolution and contrast.
+Brain tumors are among the most complex and dangerous diseases affecting the central nervous system, with over 300,000 new
+cases diagnosed globally each year. Early and accurate diagnosis is crucial to initiate effective treatment and improve patient
+survival rates. Magnetic Resonance Imaging (MRI) has become the gold standard for detecting and characterizing brain tumors due
+to its high resolution and soft-tissue contrast, enabling detailed visualization of tumor morphology and location.
 
-Meningiomas and gliomas are two of the common types of primary brain tumors with 
-different prognoses and treatment strategies. 
-Manual differentiation by radiologists can be time-consuming 
-and subject to variability. 
-One solution for supporting clinical decision making, is an automated classification system.
-A system like this, can reduce diagnostic workload, 
-increase consistency, and potentially improve early detection rates. 
-It also provides a framework for future research 
-into AI-assisted diagnostics in radiology or related application domains.
+Meningiomas and gliomas are two common types of primary brain tumors with distinct histological origins and clinical
+behaviors. While meningiomas are typically slow-growing and benign, gliomas are often aggressive and malignant,
+requiring radically different therapeutic approaches. Manual differentiation by radiologists, however, can be 
+time-consuming and prone to inter-observer variability due to the subtle visual differences in early-stage tumors.
 
-In this project, a machine learning-based system that automatically 
-classifies MRIs into meningioma or glioma categories 
-using custom handcrafted, frequency and radiomic features 
-is developed and evaluated.
-The two machine learning models employed 
-for the classification task of tumors in the two categories 
-are a Random Forest classifier and 
-a Neural Network (Multi-Layer Perceptron). 
+To address these challenges, an automated classification system leveraging machine learning could serve as a decision support assisting tool, 
+reducing diagnostic workload, increasing consistency, and tackling human bias. 
+Such systems not only streamline clinical workflows
+but also provide a framework for future research into AI assisted diagnostics 
+in neuro/oncology and medicine application domains in general.
+
+In this project, has been attempted to develop and evaluate a machine learning-based system
+to classify MRI scans into meningioma or glioma categories
+using a hybrid feature extraction approach. 
+By combining domain-inspired radiomic features 
+(e.g., texture, shape, and intensity statistics)
+with frequency-domain features derived from Fourier analysis and custom-engineered features, 
+both spatial and spectral tumor characteristics are captured.
+Two models—a Random Forest classifier (1,000 trees with feature randomization) and a nonlinear Neural Network (MLP with *100-50 hidden neurons*)—
+are trained and compared to identify the optimal balance between performance and interpretability for clinical deployment.
+
 
 \section{Related Work}
 
@@ -268,6 +270,38 @@ a Neural Network (Multi-Layer Perceptron).
 		\end{figure}		
 
 
+		
+
+		As shown in the follwing plot, both the Random Forest (RF) and MLP neural network (MLP-NN) models 
+		exhibit improved classification accuracy as the size of the MRI dataset increases. 
+		Initially, with small sample sizes (100–400 images), the models perform similarly, 
+		with MLP-NN slightly outperforming RF.
+		An observation to note is the performance spike of Random Forest at 500 samples, reaching 92\%, 
+		while MLP-NN temporarily dips to 87\%.
+		This can indicate that the RF model benefits more from mid-sized datasets, 
+		possibly due to its ensemble nature. Conversely, the MLP-NN may have required 
+		different hyperparameters or regularization to generalize effectively at that specific size.
+		As the dataset grows further (800–2000 samples), both models recover and show strong accuracy, 
+		with MLP-NN gradually surpassing Random Forest, particularly at 2000 samples where it achieves 91.5\% vs 92\% for RF. 
+
+		Overall, while RF demonstrates stable performance even with moderate data, 
+		MLP-NN shows greater potential at larger scales.
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1.0\textwidth]{images/auc_vs_mri_size.png}
+			\caption{AUC against combined train/test MRI size.}
+			\label{fig1:}
+		\end{figure}		
+
+
+
+	
+	
+
+
+
+
 \subsection{Evaluation Findings}
 
 The results from the three feature configurations demonstrate that combining all available 
@@ -351,7 +385,7 @@ classification performance. Key observations include:
 
 	
 		After hyperparameter tuning, the Random Forest classifier’s accuracy improved from 0.922 to 0.94, 
-		indicating a notable gain of approximately 1.8%. 
+		indicating a notable gain of approximately 1.8\%. 
 		This improvement suggests that optimizing 
 		parameters like the number of trees, tree depth, and feature selection/reduction helped the model to
 		better capture patterns in the data, resulting in more accurate predictions.
@@ -369,7 +403,7 @@ classification performance. Key observations include:
 		even in cases of starting from already strong baseline models.
 		
 
-		As for the model agreement, a comparative analysis plot in Figure X, 
+		As for the model agreement, a comparative analysis plot in Figure 17, 
 		shows that both classifiers largely agree and perform well together, 
 		with most samples correctly identified by both.
 		Each model also has some unique correct predictions, 
@@ -439,7 +473,7 @@ visualized in Figure 19.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.8\textwidth]{images/pre_hm_stats.png}
-			\caption{Intensity metrics of 1000 MRIs prior histogram matching.}
+			\caption{Intensity metrics of 1000 MRIs prior and after the application of histogram matching.}
 			\label{fig1:}
 		\end{figure}		
 

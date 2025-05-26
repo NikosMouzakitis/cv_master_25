@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  20 MAY 2025 22:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.3.1)  27 MAY 2025 00:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -479,6 +479,9 @@ LaTeX Warning: Label `fig1:' multiply defined.
 
 LaTeX Warning: Label `fig1:' multiply defined.
 
+
+LaTeX Warning: Label `fig1:' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -566,15 +569,15 @@ ng (ext4): destination with the same identifier (name{page.1}) has been already
  used, duplicate ignored
 <to be read again> 
                    \relax 
-l.105     \subsection
-                     {Data Details} [1]
-Overfull \hbox (29.48366pt too wide) in paragraph at lines 121--128
+l.96 	
+       [1]
+Overfull \hbox (29.48366pt too wide) in paragraph at lines 123--130
 \OT1/cmr/m/it/10.95 in-ten-sity[]outlier[]score, high[]intensity[]area, max[]ci
 rcularity, top3[]circularity[]mean,
  []
 
 
-Overfull \hbox (17.08743pt too wide) in paragraph at lines 121--128
+Overfull \hbox (17.08743pt too wide) in paragraph at lines 123--130
 \OT1/cmr/m/it/10.95 asym-me-try[]outlier, bound-ary[]sharpness[]mean, bound-ary
 []sharpness[]max, bound-
  []
@@ -583,215 +586,221 @@ Overfull \hbox (17.08743pt too wide) in paragraph at lines 121--128
 <images/RootMeanSquared.png, id=94, 867.24pt x 361.35pt>
 File: images/RootMeanSquared.png Graphic file (type png)
 <use images/RootMeanSquared.png>
-Package pdftex.def Info: images/RootMeanSquared.png  used on input line 152.
+Package pdftex.def Info: images/RootMeanSquared.png  used on input line 154.
 (pdftex.def)             Requested size: 396.0022pt x 165.00447pt.
 
-Overfull \hbox (36.0022pt too wide) in paragraph at lines 152--153
- [][] 
- []
-
-<images/classification_pyradiomics.png, id=95, 867.9627pt x 361.35pt>
-File: images/classification_pyradiomics.png Graphic file (type png)
-<use images/classification_pyradiomics.png>
-Package pdftex.def Info: images/classification_pyradiomics.png  used on input l
-ine 178.
-(pdftex.def)             Requested size: 396.0022pt x 164.86664pt.
-
-Overfull \hbox (36.0022pt too wide) in paragraph at lines 178--179
+Overfull \hbox (36.0022pt too wide) in paragraph at lines 154--155
  [][] 
  []
 
 [3 <./images/RootMeanSquared.png>]
+<images/classification_pyradiomics.png, id=101, 867.9627pt x 361.35pt>
+File: images/classification_pyradiomics.png Graphic file (type png)
+<use images/classification_pyradiomics.png>
+Package pdftex.def Info: images/classification_pyradiomics.png  used on input l
+ine 180.
+(pdftex.def)             Requested size: 396.0022pt x 164.86664pt.
+
+Overfull \hbox (36.0022pt too wide) in paragraph at lines 180--181
+ [][] 
+ []
+
 <images/top20_rf_pyradiomics.png, id=102, 722.7pt x 578.16pt>
 File: images/top20_rf_pyradiomics.png Graphic file (type png)
 <use images/top20_rf_pyradiomics.png>
 Package pdftex.def Info: images/top20_rf_pyradiomics.png  used on input line 18
-5.
+7.
 (pdftex.def)             Requested size: 251.9989pt x 201.60033pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 <images/roc_pyradiomics.png, id=103, 578.16pt x 433.62pt>
 File: images/roc_pyradiomics.png Graphic file (type png)
 <use images/roc_pyradiomics.png>
-Package pdftex.def Info: images/roc_pyradiomics.png  used on input line 192.
+Package pdftex.def Info: images/roc_pyradiomics.png  used on input line 194.
 (pdftex.def)             Requested size: 323.9978pt x 242.99757pt.
- [4 <./images/classification_pyradiomics.png> <./images/top20_rf_pyradiomics.pn
-g>]
-<images/report_pyradiomics.png, id=112, 506.89375pt x 597.23125pt>
+[4 <./images/classification_pyradiomics.png>]
+<images/report_pyradiomics.png, id=110, 506.89375pt x 597.23125pt>
 File: images/report_pyradiomics.png Graphic file (type png)
 <use images/report_pyradiomics.png>
-Package pdftex.def Info: images/report_pyradiomics.png  used on input line 199.
+Package pdftex.def Info: images/report_pyradiomics.png  used on input line 201.
 
 (pdftex.def)             Requested size: 180.0pt x 212.0778pt.
-<images/freq_metrics.png, id=113, 867.9627pt x 361.35pt>
+ [5 <./images/top20_rf_pyradiomics.png> <./images/roc_pyradiomics.png>]
+<images/freq_metrics.png, id=119, 867.9627pt x 361.35pt>
 File: images/freq_metrics.png Graphic file (type png)
 <use images/freq_metrics.png>
-Package pdftex.def Info: images/freq_metrics.png  used on input line 212.
+Package pdftex.def Info: images/freq_metrics.png  used on input line 214.
 (pdftex.def)             Requested size: 396.0022pt x 164.86664pt.
 
-Overfull \hbox (36.0022pt too wide) in paragraph at lines 212--213
+Overfull \hbox (36.0022pt too wide) in paragraph at lines 214--215
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<images/freq_top_rf.png, id=114, 722.7pt x 578.16pt>
+<images/freq_top_rf.png, id=120, 722.7pt x 578.16pt>
 File: images/freq_top_rf.png Graphic file (type png)
 <use images/freq_top_rf.png>
-Package pdftex.def Info: images/freq_top_rf.png  used on input line 219.
+Package pdftex.def Info: images/freq_top_rf.png  used on input line 221.
 (pdftex.def)             Requested size: 251.9989pt x 201.60033pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/freq_roc.png, id=115, 578.16pt x 433.62pt>
+<images/freq_roc.png, id=121, 578.16pt x 433.62pt>
 File: images/freq_roc.png Graphic file (type png)
 <use images/freq_roc.png>
-Package pdftex.def Info: images/freq_roc.png  used on input line 226.
+Package pdftex.def Info: images/freq_roc.png  used on input line 228.
 (pdftex.def)             Requested size: 323.9978pt x 242.99757pt.
-[5 <./images/roc_pyradiomics.png> <./images/report_pyradiomics.png>]
-<images/report_freq.png, id=124, 586.19pt x 702.625pt>
+[6 <./images/report_pyradiomics.png> <./images/freq_metrics.png>]
+<images/report_freq.png, id=131, 586.19pt x 702.625pt>
 File: images/report_freq.png Graphic file (type png)
 <use images/report_freq.png>
-Package pdftex.def Info: images/report_freq.png  used on input line 233.
+Package pdftex.def Info: images/report_freq.png  used on input line 235.
 (pdftex.def)             Requested size: 180.0pt x 215.75302pt.
- [6 <./images/freq_metrics.png> <./images/freq_roc.png>]
-<images/Metrics_all_features.png, id=134, 867.9627pt x 361.35pt>
+ [7 <./images/freq_top_rf.png> <./images/freq_roc.png>]
+<images/Metrics_all_features.png, id=140, 867.9627pt x 361.35pt>
 File: images/Metrics_all_features.png Graphic file (type png)
 <use images/Metrics_all_features.png>
 Package pdftex.def Info: images/Metrics_all_features.png  used on input line 24
-4.
+6.
 (pdftex.def)             Requested size: 396.0022pt x 164.86664pt.
 
-Overfull \hbox (36.0022pt too wide) in paragraph at lines 244--245
+Overfull \hbox (36.0022pt too wide) in paragraph at lines 246--247
  [][] 
  []
 
-[7 <./images/freq_top_rf.png> <./images/report_freq.png>]
-<images/top20features_all_features_rf.png, id=143, 701.7417pt x 417.7206pt>
+<images/top20features_all_features_rf.png, id=141, 701.7417pt x 417.7206pt>
 File: images/top20features_all_features_rf.png Graphic file (type png)
 <use images/top20features_all_features_rf.png>
 Package pdftex.def Info: images/top20features_all_features_rf.png  used on inpu
-t line 251.
+t line 253.
 (pdftex.def)             Requested size: 251.9989pt x 150.00323pt.
-<images/roc_curves_all_features.png, id=144, 578.16pt x 433.62pt>
+[8 <./images/report_freq.png> <./images/Metrics_all_features.png>]
+<images/roc_curves_all_features.png, id=150, 578.16pt x 433.62pt>
 File: images/roc_curves_all_features.png Graphic file (type png)
 <use images/roc_curves_all_features.png>
 Package pdftex.def Info: images/roc_curves_all_features.png  used on input line
- 258.
+ 260.
 (pdftex.def)             Requested size: 323.9978pt x 242.99757pt.
- [8 <./images/Metrics_all_features.png> <./images/top20features_all_features_rf
-.png>]
-<images/report_all_features.png, id=153, 558.085pt x 713.66624pt>
+<images/report_all_features.png, id=151, 558.085pt x 713.66624pt>
 File: images/report_all_features.png Graphic file (type png)
 <use images/report_all_features.png>
-Package pdftex.def Info: images/report_all_features.png  used on input line 265
+Package pdftex.def Info: images/report_all_features.png  used on input line 267
 .
 (pdftex.def)             Requested size: 180.0pt x 230.17465pt.
- [9 <./images/roc_curves_all_features.png> <./images/report_all_features.png>]
-Overfull \hbox (0.3195pt too wide) in paragraph at lines 283--285
+ [9 <./images/top20features_all_features_rf.png> <./images/roc_curves_all_featu
+res.png>]
+<images/auc_vs_mri_size.png, id=160, 722.7pt x 433.62pt>
+File: images/auc_vs_mri_size.png Graphic file (type png)
+<use images/auc_vs_mri_size.png>
+Package pdftex.def Info: images/auc_vs_mri_size.png  used on input line 292.
+(pdftex.def)             Requested size: 360.0pt x 216.00224pt.
+
+[10 <./images/report_all_features.png>]
+Overfull \hbox (0.3195pt too wide) in paragraph at lines 317--319
 []\OT1/cmr/m/it/10.95 Texture/shape/statistical fea-tures \OT1/cmr/m/n/10.95 al
 one pro-vided com-pet-i-tive per-
  []
 
-[10]
-<images/metrics_hyper.png, id=167, 867.9627pt x 361.35pt>
+[11 <./images/auc_vs_mri_size.png>]
+<images/metrics_hyper.png, id=174, 867.9627pt x 361.35pt>
 File: images/metrics_hyper.png Graphic file (type png)
 <use images/metrics_hyper.png>
-Package pdftex.def Info: images/metrics_hyper.png  used on input line 340.
+Package pdftex.def Info: images/metrics_hyper.png  used on input line 374.
 (pdftex.def)             Requested size: 396.0022pt x 164.86664pt.
 
-Overfull \hbox (36.0022pt too wide) in paragraph at lines 340--341
+Overfull \hbox (36.0022pt too wide) in paragraph at lines 374--375
  [][] 
  []
 
-<images/roc_hyper.png, id=168, 578.16pt x 433.62pt>
+[12]
+<images/roc_hyper.png, id=181, 578.16pt x 433.62pt>
 File: images/roc_hyper.png Graphic file (type png)
 <use images/roc_hyper.png>
-Package pdftex.def Info: images/roc_hyper.png  used on input line 347.
+Package pdftex.def Info: images/roc_hyper.png  used on input line 381.
 (pdftex.def)             Requested size: 323.9978pt x 242.99757pt.
-[11 <./images/metrics_hyper.png>]
-<images/comparison.png, id=175, 684.3969pt x 357.0138pt>
+ [13 <./images/metrics_hyper.png> <./images/roc_hyper.png>]
+<images/comparison.png, id=190, 684.3969pt x 357.0138pt>
 File: images/comparison.png Graphic file (type png)
 <use images/comparison.png>
-Package pdftex.def Info: images/comparison.png  used on input line 384.
+Package pdftex.def Info: images/comparison.png  used on input line 418.
 (pdftex.def)             Requested size: 323.9978pt x 169.01675pt.
- [12 <./images/roc_hyper.png>]
-<images/histogram_analysis_unmatched.png, id=184, 820.2645pt x 534.798pt>
+<images/histogram_analysis_unmatched.png, id=191, 820.2645pt x 534.798pt>
 File: images/histogram_analysis_unmatched.png Graphic file (type png)
 <use images/histogram_analysis_unmatched.png>
 Package pdftex.def Info: images/histogram_analysis_unmatched.png  used on input
- line 406.
+ line 440.
 (pdftex.def)             Requested size: 360.0pt x 234.71614pt.
- [13 <./images/comparison.png>]
-<images/Unmatched_intensity_distributions.png, id=191, 1026.9567pt x 510.2262pt
+ [14 <./images/comparison.png>]
+<images/Unmatched_intensity_distributions.png, id=198, 1026.9567pt x 510.2262pt
 >
 File: images/Unmatched_intensity_distributions.png Graphic file (type png)
 <use images/Unmatched_intensity_distributions.png>
 Package pdftex.def Info: images/Unmatched_intensity_distributions.png  used on 
-input line 415.
+input line 449.
 (pdftex.def)             Requested size: 360.0pt x 178.8621pt.
- [14 <./images/histogram_analysis_unmatched.png> <./images/Unmatched_intensity_
+ [15 <./images/histogram_analysis_unmatched.png> <./images/Unmatched_intensity_
 distributions.png>]
-<images/pre_hm_stats.png, id=200, 381.425pt x 307.1475pt>
+<images/pre_hm_stats.png, id=207, 381.425pt x 307.1475pt>
 File: images/pre_hm_stats.png Graphic file (type png)
 <use images/pre_hm_stats.png>
-Package pdftex.def Info: images/pre_hm_stats.png  used on input line 441.
+Package pdftex.def Info: images/pre_hm_stats.png  used on input line 475.
 (pdftex.def)             Requested size: 288.0011pt x 231.9254pt.
- [15 <./images/pre_hm_stats.png>]
-<images/metrics_hm.png, id=207, 867.9627pt x 361.35pt>
+ [16 <./images/pre_hm_stats.png>]
+<images/metrics_hm.png, id=214, 867.9627pt x 361.35pt>
 File: images/metrics_hm.png Graphic file (type png)
 <use images/metrics_hm.png>
-Package pdftex.def Info: images/metrics_hm.png  used on input line 466.
+Package pdftex.def Info: images/metrics_hm.png  used on input line 500.
 (pdftex.def)             Requested size: 396.0022pt x 164.86664pt.
 
-Overfull \hbox (36.0022pt too wide) in paragraph at lines 466--467
+Overfull \hbox (36.0022pt too wide) in paragraph at lines 500--501
  [][] 
  []
 
-<images/top20_rf_hm.png, id=208, 722.7pt x 578.16pt>
+<images/top20_rf_hm.png, id=215, 722.7pt x 578.16pt>
 File: images/top20_rf_hm.png Graphic file (type png)
 <use images/top20_rf_hm.png>
-Package pdftex.def Info: images/top20_rf_hm.png  used on input line 473.
+Package pdftex.def Info: images/top20_rf_hm.png  used on input line 507.
 (pdftex.def)             Requested size: 251.9989pt x 201.60033pt.
-<images/roc_hm.png, id=209, 578.16pt x 433.62pt>
+<images/roc_hm.png, id=216, 578.16pt x 433.62pt>
 File: images/roc_hm.png Graphic file (type png)
 <use images/roc_hm.png>
-Package pdftex.def Info: images/roc_hm.png  used on input line 480.
+Package pdftex.def Info: images/roc_hm.png  used on input line 514.
 (pdftex.def)             Requested size: 323.9978pt x 242.99757pt.
-[16 <./images/metrics_hm.png> <./images/top20_rf_hm.png>]
-<images/report_hm.png, id=218, 564.1075pt x 699.61375pt>
+[17 <./images/metrics_hm.png> <./images/top20_rf_hm.png>]
+<images/report_hm.png, id=225, 564.1075pt x 699.61375pt>
 File: images/report_hm.png Graphic file (type png)
 <use images/report_hm.png>
-Package pdftex.def Info: images/report_hm.png  used on input line 487.
+Package pdftex.def Info: images/report_hm.png  used on input line 521.
 (pdftex.def)             Requested size: 180.0pt x 223.24046pt.
- [17 <./images/roc_hm.png> <./images/report_hm.png>] (./main.bbl
+ [18 <./images/roc_hm.png> <./images/report_hm.png>] (./main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--6
 [] []$\OT1/cmtt/m/n/10.95 https : / / www . kaggle . com / datasets / masoudnic
 kparvar /
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 519.
- [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 519.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 553.
+ [19]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 553.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 519.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 519.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 553.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 553.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: BBD78154CE3311CBC11E66D62EC7D86C;1025.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 519.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 553.
  ) 
 Here is how much of TeX's memory you used:
- 11890 strings out of 481239
- 218569 string characters out of 5920378
+ 11898 strings out of 481239
+ 218761 string characters out of 5920378
  467644 words of memory out of 5000000
- 26904 multiletter control sequences out of 15000+600000
+ 26909 multiletter control sequences out of 15000+600000
  539971 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,7n,42p,300b,745s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,7n,42p,300b,777s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
@@ -800,10 +809,10 @@ t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
 public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.
 pfb>
-Output written on main.pdf (19 pages, 2415155 bytes).
+Output written on main.pdf (20 pages, 2451909 bytes).
 PDF statistics:
- 285 PDF objects out of 1000 (max. 8388607)
- 206 compressed objects within 3 object streams
- 63 named destinations out of 1000 (max. 500000)
- 241 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 292 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 246 words of extra memory for PDF output out of 10000 (max. 10000000)
 
